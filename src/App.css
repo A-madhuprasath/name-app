@@ -24,6 +24,7 @@
     width: 70px;
     border-radius: 50%;
     background: cadetblue;
+    border: 1px solid grey;
 }
 
 .nameContainer {

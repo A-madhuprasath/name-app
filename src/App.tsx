@@ -3,6 +3,7 @@ import './App.css';
 import axios from "axios"
 import Skeleton from '@mui/material/Skeleton';
 
+const url = 'https://randomuser.me/api'
 const App = () => {
   const [data, setData] = useState<{ [key: string]: any }>({});
   const [{title, first, last}, setName] = useState<{ [key: string]: any }>({});
@@ -19,7 +20,7 @@ const App = () => {
       if (typeof window !== "undefined") {
         setLoading(true);
         await axios.get(
-          `https://randomuser.me/api`
+          url
         ).then((res) => {
           if (res?.status === 200) {
             setData(res?.data?.results?.[0]);
@@ -33,7 +34,7 @@ const App = () => {
             setError('')
             setLoading(false);
           } else {
-            //incase backend give failed response
+            //incase backend gives failed response
             setData({});
             setName({});
             setEmail({});
